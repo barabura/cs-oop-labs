@@ -34,10 +34,17 @@
             this.tbarFFrequency = new System.Windows.Forms.TrackBar();
             this.lblFTrajectorySize = new System.Windows.Forms.Label();
             this.tbarFTrajectorySize = new System.Windows.Forms.TrackBar();
+            this.lblMovingPointManagement = new System.Windows.Forms.Label();
+            this.btStart = new System.Windows.Forms.Button();
+            this.btStop = new System.Windows.Forms.Button();
+            this.cboxChangeDitrection = new System.Windows.Forms.CheckBox();
+            this.lblPointSpeed = new System.Windows.Forms.Label();
+            this.tbarPointSpeed = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pboxWorkSpace)).BeginInit();
             this.pnlFControlSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFrequency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarPointSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // pboxWorkSpace
@@ -58,6 +65,12 @@
             this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFControlSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlFControlSpace.Controls.Add(this.tbarPointSpeed);
+            this.pnlFControlSpace.Controls.Add(this.lblPointSpeed);
+            this.pnlFControlSpace.Controls.Add(this.cboxChangeDitrection);
+            this.pnlFControlSpace.Controls.Add(this.btStop);
+            this.pnlFControlSpace.Controls.Add(this.btStart);
+            this.pnlFControlSpace.Controls.Add(this.lblMovingPointManagement);
             this.pnlFControlSpace.Controls.Add(this.lblFFrequency);
             this.pnlFControlSpace.Controls.Add(this.tbarFFrequency);
             this.pnlFControlSpace.Controls.Add(this.lblFTrajectorySize);
@@ -72,7 +85,7 @@
             this.lblFFrequency.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblFFrequency.AutoSize = true;
             this.lblFFrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFFrequency.Location = new System.Drawing.Point(133, 257);
+            this.lblFFrequency.Location = new System.Drawing.Point(8, 97);
             this.lblFFrequency.Name = "lblFFrequency";
             this.lblFFrequency.Size = new System.Drawing.Size(92, 20);
             this.lblFFrequency.TabIndex = 3;
@@ -81,7 +94,7 @@
             // tbarFFrequency
             // 
             this.tbarFFrequency.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tbarFFrequency.Location = new System.Drawing.Point(3, 297);
+            this.tbarFFrequency.Location = new System.Drawing.Point(3, 120);
             this.tbarFFrequency.Maximum = 50;
             this.tbarFFrequency.Minimum = 3;
             this.tbarFFrequency.Name = "tbarFFrequency";
@@ -94,7 +107,7 @@
             this.lblFTrajectorySize.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblFTrajectorySize.AutoSize = true;
             this.lblFTrajectorySize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFTrajectorySize.Location = new System.Drawing.Point(111, 44);
+            this.lblFTrajectorySize.Location = new System.Drawing.Point(8, 15);
             this.lblFTrajectorySize.Name = "lblFTrajectorySize";
             this.lblFTrajectorySize.Size = new System.Drawing.Size(125, 20);
             this.lblFTrajectorySize.TabIndex = 1;
@@ -103,12 +116,76 @@
             // tbarFTrajectorySize
             // 
             this.tbarFTrajectorySize.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tbarFTrajectorySize.Location = new System.Drawing.Point(2, 77);
+            this.tbarFTrajectorySize.Location = new System.Drawing.Point(3, 38);
             this.tbarFTrajectorySize.Maximum = 50;
             this.tbarFTrajectorySize.Name = "tbarFTrajectorySize";
             this.tbarFTrajectorySize.Size = new System.Drawing.Size(346, 56);
             this.tbarFTrajectorySize.TabIndex = 0;
             this.tbarFTrajectorySize.Value = 25;
+            // 
+            // lblMovingPointManagement
+            // 
+            this.lblMovingPointManagement.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblMovingPointManagement.AutoSize = true;
+            this.lblMovingPointManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMovingPointManagement.Location = new System.Drawing.Point(8, 179);
+            this.lblMovingPointManagement.Name = "lblMovingPointManagement";
+            this.lblMovingPointManagement.Size = new System.Drawing.Size(204, 20);
+            this.lblMovingPointManagement.TabIndex = 4;
+            this.lblMovingPointManagement.Text = "Moving point management";
+            // 
+            // btStart
+            // 
+            this.btStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btStart.Location = new System.Drawing.Point(12, 214);
+            this.btStart.Name = "btStart";
+            this.btStart.Size = new System.Drawing.Size(91, 33);
+            this.btStart.TabIndex = 5;
+            this.btStart.Text = "START";
+            this.btStart.UseVisualStyleBackColor = true;
+            // 
+            // btStop
+            // 
+            this.btStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btStop.Location = new System.Drawing.Point(126, 214);
+            this.btStop.Name = "btStop";
+            this.btStop.Size = new System.Drawing.Size(86, 33);
+            this.btStop.TabIndex = 6;
+            this.btStop.Text = "STOP";
+            this.btStop.UseVisualStyleBackColor = true;
+            // 
+            // cboxChangeDitrection
+            // 
+            this.cboxChangeDitrection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxChangeDitrection.AutoSize = true;
+            this.cboxChangeDitrection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cboxChangeDitrection.Location = new System.Drawing.Point(12, 253);
+            this.cboxChangeDitrection.Name = "cboxChangeDitrection";
+            this.cboxChangeDitrection.Size = new System.Drawing.Size(154, 24);
+            this.cboxChangeDitrection.TabIndex = 7;
+            this.cboxChangeDitrection.Text = "change direction";
+            this.cboxChangeDitrection.UseVisualStyleBackColor = true;
+            // 
+            // lblPointSpeed
+            // 
+            this.lblPointSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPointSpeed.AutoSize = true;
+            this.lblPointSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPointSpeed.Location = new System.Drawing.Point(8, 294);
+            this.lblPointSpeed.Name = "lblPointSpeed";
+            this.lblPointSpeed.Size = new System.Drawing.Size(102, 20);
+            this.lblPointSpeed.TabIndex = 8;
+            this.lblPointSpeed.Text = "Point speed:";
+            // 
+            // tbarPointSpeed
+            // 
+            this.tbarPointSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbarPointSpeed.Location = new System.Drawing.Point(3, 317);
+            this.tbarPointSpeed.Name = "tbarPointSpeed";
+            this.tbarPointSpeed.Size = new System.Drawing.Size(345, 56);
+            this.tbarPointSpeed.TabIndex = 9;
             // 
             // frmMain
             // 
@@ -124,6 +201,7 @@
             this.pnlFControlSpace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFrequency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarPointSpeed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,6 +214,12 @@
         private System.Windows.Forms.Label lblFTrajectorySize;
         private System.Windows.Forms.Label lblFFrequency;
         private System.Windows.Forms.TrackBar tbarFFrequency;
+        private System.Windows.Forms.Label lblMovingPointManagement;
+        private System.Windows.Forms.CheckBox cboxChangeDitrection;
+        private System.Windows.Forms.Button btStop;
+        private System.Windows.Forms.Button btStart;
+        private System.Windows.Forms.TrackBar tbarPointSpeed;
+        private System.Windows.Forms.Label lblPointSpeed;
     }
 }
 
