@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
 namespace oop_lab_1
@@ -36,7 +35,5 @@ namespace oop_lab_1
             visible = true;
             timer.Start();
         }
-
-
     }
 }

@@ -40,11 +40,13 @@
             this.tbarFFrequency = new System.Windows.Forms.TrackBar();
             this.lblFTrajectorySize = new System.Windows.Forms.Label();
             this.tbarFTrajectorySize = new System.Windows.Forms.TrackBar();
+            this.tbarPointPulse = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pboxWorkSpace)).BeginInit();
             this.pnlFControlSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarPointSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFrequency)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarPointPulse)).BeginInit();
             this.SuspendLayout();
             // 
             // pboxWorkSpace
@@ -65,6 +67,7 @@
             this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFControlSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlFControlSpace.Controls.Add(this.tbarPointPulse);
             this.pnlFControlSpace.Controls.Add(this.tbarPointSpeed);
             this.pnlFControlSpace.Controls.Add(this.lblPointSpeed);
             this.pnlFControlSpace.Controls.Add(this.cboxChangeDitrection);
@@ -84,9 +87,12 @@
             // 
             this.tbarPointSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbarPointSpeed.Location = new System.Drawing.Point(3, 317);
+            this.tbarPointSpeed.Maximum = 12;
+            this.tbarPointSpeed.Minimum = 3;
             this.tbarPointSpeed.Name = "tbarPointSpeed";
             this.tbarPointSpeed.Size = new System.Drawing.Size(345, 56);
             this.tbarPointSpeed.TabIndex = 9;
+            this.tbarPointSpeed.Value = 3;
             // 
             // lblPointSpeed
             // 
@@ -189,6 +195,15 @@
             this.tbarFTrajectorySize.TabIndex = 0;
             this.tbarFTrajectorySize.Value = 25;
             // 
+            // tbarPointPulse
+            // 
+            this.tbarPointPulse.Location = new System.Drawing.Point(3, 390);
+            this.tbarPointPulse.Minimum = 1;
+            this.tbarPointPulse.Name = "tbarPointPulse";
+            this.tbarPointPulse.Size = new System.Drawing.Size(345, 56);
+            this.tbarPointPulse.TabIndex = 10;
+            this.tbarPointPulse.Value = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,6 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbarPointSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFFrequency)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarFTrajectorySize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarPointPulse)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,6 +238,7 @@
         private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.TrackBar tbarPointSpeed;
         private System.Windows.Forms.Label lblPointSpeed;
+        private System.Windows.Forms.TrackBar tbarPointPulse;
     }
 }
 

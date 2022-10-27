@@ -5,13 +5,13 @@ namespace oop_lab_1
 {
     public partial class frmMain : Form
     {
-        private MovingPoint hypocycloid;
+        private Figure hypocycloid;
         private float scaleMultiplier = 0.02f;
 
         public frmMain()
         {
             InitializeComponent();
-            hypocycloid = new MovingPoint();
+            hypocycloid = new Figure();
         }
 
         private void pboxWorkSpace_Paint(object sender, PaintEventArgs e)
@@ -20,6 +20,8 @@ namespace oop_lab_1
             hypocycloid.DrawPoint(e.Graphics);
             hypocycloid.scale = tbarFTrajectorySize.Value * scaleMultiplier;
             hypocycloid.frequency = tbarFFrequency.Value * 2;
+            hypocycloid.speed = tbarPointSpeed.Value;
+            hypocycloid.pulse = tbarPointPulse.Value;
 
             //movingPoint.DrawPoint(pboxWorkSpace, e.Graphics);
             //movingPoint.scale = tbarFTrajectorySize.Value * scaleMultiplier;

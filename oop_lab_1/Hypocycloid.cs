@@ -9,7 +9,7 @@ namespace oop_lab_1
         private float r;
         private float R;
         private PointF basePoint;
-        protected PointF[] points = new PointF[100];
+        protected PointF[] points = new PointF[300];
 
         private float floatFi;
         private float floatDeltaFi;
