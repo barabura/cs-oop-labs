@@ -9,7 +9,7 @@ namespace oop_lab_1
         private float r;
         private float R;
         private PointF basePoint;
-        private PointF[] points = new PointF[500];
+        protected PointF[] points = new PointF[100];
 
         private float floatFi;
         private float floatDeltaFi;
@@ -39,7 +39,7 @@ namespace oop_lab_1
                 }
 
                 points[i] = new PointF(x, y);
-
+                 
                 floatFi = floatFi - floatDeltaFi;
             }
             g.DrawPolygon(pen, points);

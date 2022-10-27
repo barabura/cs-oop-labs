@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovingPoint.cs" />
     <Compile Include="Hypocycloid.cs" />
     <Compile Include="uMainForm.cs">
       <SubType>Form</SubType>
