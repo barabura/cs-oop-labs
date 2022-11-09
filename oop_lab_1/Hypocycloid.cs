@@ -16,6 +16,7 @@ namespace oop_lab_1
 
         public float scale = 0.5f;
         public int frequency = 6;
+        public Color trajectoryColor = Color.Black;
 
         public void Draw(PictureBox pbox, Graphics g)
         {
@@ -23,7 +24,7 @@ namespace oop_lab_1
             r = R / frequency;
             basePoint = new PointF(pbox.Width / 2, pbox.Height / 2);
 
-            Pen pen = new Pen(Color.Black, .1f);
+            Pen pen = new Pen(trajectoryColor, .1f);
 
             floatFi = 0;
             floatDeltaFi = 2 * (float)Math.PI / points.Length;

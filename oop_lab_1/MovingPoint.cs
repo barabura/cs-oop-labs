@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
 namespace oop_lab_1
@@ -9,7 +10,7 @@ namespace oop_lab_1
         private Timer timer;
         private bool visible = false;
 
-        public void DrawPoint(Graphics g)
+        public void DrawPoint(PictureBox pbox, Graphics g)
         {
             int i = 0;
             timer = new Timer();
@@ -20,6 +21,7 @@ namespace oop_lab_1
                     i = 0;
                 mpBasePoint = points[i];
                 ++i;
+                pbox.Invalidate();
             };
 
             if (!visible)
