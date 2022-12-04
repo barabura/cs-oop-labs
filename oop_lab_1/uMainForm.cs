@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace oop_lab_1
+namespace oop_labs
 {
     public partial class frmMain : Form
     {
@@ -79,6 +79,11 @@ namespace oop_lab_1
                 hypocycloid.trajectoryColor = cdTrajectoryColor.Color;
                 pboxWorkSpace.Invalidate();
             }
+        }
+
+        private void pboxWorkSpace_SizeChanged(object sender, System.EventArgs e)
+        {
+            pboxWorkSpace.Invalidate();
         }
     }
 }

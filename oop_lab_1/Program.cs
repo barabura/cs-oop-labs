@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace oop_lab_1
+namespace oop_labs
 {
     internal static class Program
     {

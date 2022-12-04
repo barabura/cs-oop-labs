@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
-namespace oop_lab_1
+namespace oop_labs
 {
     internal class Figure : Hypocycloid
     {
@@ -30,7 +30,11 @@ namespace oop_lab_1
             timer.Elapsed += (_, __) =>
             {
                 if (i >= points.Length - speed / 3)
+                {
                     i = 0;
+                    return;
+                }
+                
                 fgBasePoint = points[i];
                 
                 angle = angle - deltaAngle;

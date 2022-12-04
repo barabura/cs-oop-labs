@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace oop_lab_1
+namespace oop_labs
 {
     internal class Hypocycloid
     {

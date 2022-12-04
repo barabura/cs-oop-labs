@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
-namespace oop_lab_1
+namespace oop_labs
 {
     internal class MovingPoint : Hypocycloid
     {

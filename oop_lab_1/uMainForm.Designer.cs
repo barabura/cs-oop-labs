@@ -1,4 +1,4 @@
-﻿namespace oop_lab_1
+﻿namespace oop_labs
 {
     partial class frmMain
     {
@@ -30,6 +30,10 @@
         {
             this.pboxWorkSpace = new System.Windows.Forms.PictureBox();
             this.pnlFControlSpace = new System.Windows.Forms.Panel();
+            this.btnTrajectoryColor = new System.Windows.Forms.Button();
+            this.btnBackgroundColor = new System.Windows.Forms.Button();
+            this.lblPulseSpeed = new System.Windows.Forms.Label();
+            this.btnFigureColor = new System.Windows.Forms.Button();
             this.tbarPointPulse = new System.Windows.Forms.TrackBar();
             this.tbarPointSpeed = new System.Windows.Forms.TrackBar();
             this.lblPointSpeed = new System.Windows.Forms.Label();
@@ -41,12 +45,8 @@
             this.tbarFFrequency = new System.Windows.Forms.TrackBar();
             this.lblFTrajectorySize = new System.Windows.Forms.Label();
             this.tbarFTrajectorySize = new System.Windows.Forms.TrackBar();
-            this.btnFigureColor = new System.Windows.Forms.Button();
             this.cdFigureColor = new System.Windows.Forms.ColorDialog();
-            this.lblPulseSpeed = new System.Windows.Forms.Label();
-            this.btnBackgroundColor = new System.Windows.Forms.Button();
             this.cdBackgroundColor = new System.Windows.Forms.ColorDialog();
-            this.btnTrajectoryColor = new System.Windows.Forms.Button();
             this.cdTrajectoryColor = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pboxWorkSpace)).BeginInit();
             this.pnlFControlSpace.SuspendLayout();
@@ -58,8 +58,8 @@
             // 
             // pboxWorkSpace
             // 
-            this.pboxWorkSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pboxWorkSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pboxWorkSpace.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pboxWorkSpace.Location = new System.Drawing.Point(12, 12);
@@ -67,11 +67,12 @@
             this.pboxWorkSpace.Size = new System.Drawing.Size(562, 544);
             this.pboxWorkSpace.TabIndex = 0;
             this.pboxWorkSpace.TabStop = false;
+            this.pboxWorkSpace.SizeChanged += new System.EventHandler(this.pboxWorkSpace_SizeChanged);
             this.pboxWorkSpace.Paint += new System.Windows.Forms.PaintEventHandler(this.pboxWorkSpace_Paint);
             // 
             // pnlFControlSpace
             // 
-            this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFControlSpace.BackColor = System.Drawing.SystemColors.Control;
             this.pnlFControlSpace.Controls.Add(this.btnTrajectoryColor);
@@ -93,6 +94,53 @@
             this.pnlFControlSpace.Name = "pnlFControlSpace";
             this.pnlFControlSpace.Size = new System.Drawing.Size(352, 544);
             this.pnlFControlSpace.TabIndex = 1;
+            // 
+            // btnTrajectoryColor
+            // 
+            this.btnTrajectoryColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTrajectoryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnTrajectoryColor.Location = new System.Drawing.Point(87, 479);
+            this.btnTrajectoryColor.Name = "btnTrajectoryColor";
+            this.btnTrajectoryColor.Size = new System.Drawing.Size(170, 36);
+            this.btnTrajectoryColor.TabIndex = 14;
+            this.btnTrajectoryColor.Text = "Trajectory color";
+            this.btnTrajectoryColor.UseVisualStyleBackColor = true;
+            this.btnTrajectoryColor.Click += new System.EventHandler(this.btnTrajectoryColor_Click);
+            // 
+            // btnBackgroundColor
+            // 
+            this.btnBackgroundColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackgroundColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBackgroundColor.Location = new System.Drawing.Point(169, 438);
+            this.btnBackgroundColor.Name = "btnBackgroundColor";
+            this.btnBackgroundColor.Size = new System.Drawing.Size(170, 35);
+            this.btnBackgroundColor.TabIndex = 13;
+            this.btnBackgroundColor.Text = "Background color";
+            this.btnBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnBackgroundColor.Click += new System.EventHandler(this.btnBackgroundColor_Click);
+            // 
+            // lblPulseSpeed
+            // 
+            this.lblPulseSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPulseSpeed.AutoSize = true;
+            this.lblPulseSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPulseSpeed.Location = new System.Drawing.Point(8, 353);
+            this.lblPulseSpeed.Name = "lblPulseSpeed";
+            this.lblPulseSpeed.Size = new System.Drawing.Size(168, 20);
+            this.lblPulseSpeed.TabIndex = 12;
+            this.lblPulseSpeed.Text = "Figure pulse intensity";
+            // 
+            // btnFigureColor
+            // 
+            this.btnFigureColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFigureColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnFigureColor.Location = new System.Drawing.Point(12, 438);
+            this.btnFigureColor.Name = "btnFigureColor";
+            this.btnFigureColor.Size = new System.Drawing.Size(137, 35);
+            this.btnFigureColor.TabIndex = 11;
+            this.btnFigureColor.Text = "Figure color";
+            this.btnFigureColor.UseVisualStyleBackColor = true;
+            this.btnFigureColor.Click += new System.EventHandler(this.btnFigureColor_Click);
             // 
             // tbarPointPulse
             // 
@@ -219,51 +267,6 @@
             this.tbarFTrajectorySize.TabIndex = 0;
             this.tbarFTrajectorySize.Value = 25;
             this.tbarFTrajectorySize.ValueChanged += new System.EventHandler(this.tbarFTrajectorySize_ValueChanged);
-            // 
-            // btnFigureColor
-            // 
-            this.btnFigureColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFigureColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnFigureColor.Location = new System.Drawing.Point(12, 438);
-            this.btnFigureColor.Name = "btnFigureColor";
-            this.btnFigureColor.Size = new System.Drawing.Size(137, 35);
-            this.btnFigureColor.TabIndex = 11;
-            this.btnFigureColor.Text = "Figure color";
-            this.btnFigureColor.UseVisualStyleBackColor = true;
-            this.btnFigureColor.Click += new System.EventHandler(this.btnFigureColor_Click);
-            // 
-            // lblPulseSpeed
-            // 
-            this.lblPulseSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPulseSpeed.AutoSize = true;
-            this.lblPulseSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblPulseSpeed.Location = new System.Drawing.Point(8, 353);
-            this.lblPulseSpeed.Name = "lblPulseSpeed";
-            this.lblPulseSpeed.Size = new System.Drawing.Size(168, 20);
-            this.lblPulseSpeed.TabIndex = 12;
-            this.lblPulseSpeed.Text = "Figure pulse intensity";
-            // 
-            // btnBackgroundColor
-            // 
-            this.btnBackgroundColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBackgroundColor.Location = new System.Drawing.Point(169, 438);
-            this.btnBackgroundColor.Name = "btnBackgroundColor";
-            this.btnBackgroundColor.Size = new System.Drawing.Size(170, 35);
-            this.btnBackgroundColor.TabIndex = 13;
-            this.btnBackgroundColor.Text = "Background color";
-            this.btnBackgroundColor.UseVisualStyleBackColor = true;
-            this.btnBackgroundColor.Click += new System.EventHandler(this.btnBackgroundColor_Click);
-            // 
-            // btnTrajectoryColor
-            // 
-            this.btnTrajectoryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnTrajectoryColor.Location = new System.Drawing.Point(12, 488);
-            this.btnTrajectoryColor.Name = "btnTrajectoryColor";
-            this.btnTrajectoryColor.Size = new System.Drawing.Size(137, 36);
-            this.btnTrajectoryColor.TabIndex = 14;
-            this.btnTrajectoryColor.Text = "Trajectory color";
-            this.btnTrajectoryColor.UseVisualStyleBackColor = true;
-            this.btnTrajectoryColor.Click += new System.EventHandler(this.btnTrajectoryColor_Click);
             // 
             // frmMain
             // 
