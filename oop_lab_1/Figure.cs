@@ -12,10 +12,29 @@ namespace oop_labs
         private Timer timer;
         private bool visible = false;
         private float delta = 20;
+        private Point[] _vertexes;
 
         public int speed = 1;
         public int pulse = 1;
         public Color figureColor = Color.Green;
+
+        private Point[] HandleVertexes(string[] input)
+        {
+            Point[] handledVertexes = new Point[input.Length];
+
+            for (int i = 0; i < handledVertexes.Length; i++)
+            {
+                string[] splitted = input[i].Split(',');
+
+                handledVertexes[i] = new Point(Int32.Parse(splitted[0]), Int32.Parse(splitted[1]));
+            }
+            return handledVertexes;
+        }
+
+        public string[] Vertexes
+        {
+            set { _vertexes = this.HandleVertexes(value); }
+        }
 
         public void DrawFigure(PictureBox pbox, Graphics g)
         {
@@ -37,7 +56,8 @@ namespace oop_labs
                 fgBasePoint = points[i];
 
                 angle = angle - deltaAngle;
-                delta = Math.Abs((float)Math.Cos(angle * pulse) * 20);
+                delta = Math.Abs((float)Math.Cos(angle * pulse));
+                // delta = Math.Abs((float)Math.Cos(angle * pulse) * 20);
 
                 i = i + speed / 3;
                 pbox.Invalidate();
@@ -46,101 +66,194 @@ namespace oop_labs
             if (!visible)
                 return;
 
-            float scaledDelta = delta * scale;
+            // float scaledDelta = delta * scale;
 
             Pen myPen = new Pen(figureColor, 2);
 
-            if (fgBasePoint.X != 0 && fgBasePoint.Y != 0)
-            {
-                // top line for 2 blocks --
-                g.DrawLine(
-                    myPen,
-                    fgBasePoint.X - scaledDelta * 6,
-                    fgBasePoint.Y - scaledDelta,
-                    fgBasePoint.X + scaledDelta * 6,
-                    fgBasePoint.Y - scaledDelta
-                );
-                // right line for 2 blocks |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X + scaledDelta * 6,
-                   fgBasePoint.Y - scaledDelta,
-                   fgBasePoint.X + scaledDelta * 6,
-                   fgBasePoint.Y + scaledDelta
-                );
-                // bottom line for 2 blocks __
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X + scaledDelta * 6,
-                   fgBasePoint.Y + scaledDelta,
-                   fgBasePoint.X - scaledDelta * 6,
-                   fgBasePoint.Y + scaledDelta
-                );
-                // left line for 2 blocks |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X - scaledDelta * 6,
-                   fgBasePoint.Y + scaledDelta,
-                   fgBasePoint.X - scaledDelta * 6,
-                   fgBasePoint.Y - scaledDelta
-                );
-                // middle line for 2 blocks |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X,
-                   fgBasePoint.Y + scaledDelta,
-                   fgBasePoint.X,
-                   fgBasePoint.Y - scaledDelta
-                );
-                // left line for top block |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X - scaledDelta * 3,
-                   fgBasePoint.Y - scaledDelta,
-                   fgBasePoint.X - scaledDelta * 3,
-                   fgBasePoint.Y - scaledDelta * 3
-                );
-                // top line for top block -
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X - scaledDelta * 3,
-                   fgBasePoint.Y - scaledDelta * 3,
-                   fgBasePoint.X + scaledDelta * 3,
-                   fgBasePoint.Y - scaledDelta * 3
-                );
-                // right line for top block |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X + scaledDelta * 3,
-                   fgBasePoint.Y - scaledDelta * 3,
-                   fgBasePoint.X + scaledDelta * 3,
-                   fgBasePoint.Y - scaledDelta
-                );
-                // right line for bottom block |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X + scaledDelta * 3,
-                   fgBasePoint.Y + scaledDelta,
-                   fgBasePoint.X + scaledDelta * 3,
-                   fgBasePoint.Y + scaledDelta * 3
-                );
-                // bottom line for bottom block _
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X + scaledDelta * 3,
-                   fgBasePoint.Y + scaledDelta * 3,
-                   fgBasePoint.X - scaledDelta * 3,
-                   fgBasePoint.Y + scaledDelta * 3
-                );
-                // left line for bottom block |
-                g.DrawLine(
-                   myPen,
-                   fgBasePoint.X - scaledDelta * 3,
-                   fgBasePoint.Y + scaledDelta * 3,
-                   fgBasePoint.X - scaledDelta * 3,
-                   fgBasePoint.Y + scaledDelta
-                );
-            }
+            if (fgBasePoint.X == 0 && fgBasePoint.Y == 0)
+                return;
+
+            // top line for 2 blocks --
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[1].X * scale * delta,
+                fgBasePoint.Y + _vertexes[1].Y * scale * delta,
+                fgBasePoint.X + _vertexes[4].X * scale * delta,
+                fgBasePoint.Y + _vertexes[4].Y * scale * delta
+            );
+            // right line for 2 blocks |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[4].X * scale * delta,
+                fgBasePoint.Y + _vertexes[4].Y * scale * delta,
+                fgBasePoint.X + _vertexes[5].X * scale * delta,
+                fgBasePoint.Y + _vertexes[5].Y * scale * delta
+            );
+            // bottom line for 2 blocks __
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[5].X * scale * delta,
+                fgBasePoint.Y + _vertexes[5].Y * scale * delta,
+                fgBasePoint.X + _vertexes[0].X * scale * delta,
+                fgBasePoint.Y + _vertexes[0].Y * scale * delta
+            );
+            // left line for 2 blocks |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[0].X * scale * delta,
+                fgBasePoint.Y + _vertexes[0].Y * scale * delta,
+                fgBasePoint.X + _vertexes[1].X * scale * delta,
+                fgBasePoint.Y + _vertexes[1].Y * scale * delta
+            );
+            // middle line for 2 blocks
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + (_vertexes[1].X + _vertexes[4].X) * scale * delta / 2,
+                fgBasePoint.Y + (_vertexes[1].Y + _vertexes[4].Y) * scale * delta / 2,
+                fgBasePoint.X + (_vertexes[0].X + _vertexes[5].X) * scale * delta / 2,
+                fgBasePoint.Y + (_vertexes[0].Y + _vertexes[5].Y) * scale * delta / 2
+            );
+            
+            // left line for top block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + (_vertexes[1].X + (_vertexes[1].X + _vertexes[4].X) / 2) * scale * delta / 2,
+                fgBasePoint.Y + (_vertexes[1].Y + (_vertexes[1].Y + _vertexes[4].Y) / 2) * scale * delta / 2,
+                fgBasePoint.X + _vertexes[2].X * scale * delta,
+                fgBasePoint.Y + _vertexes[2].Y * scale * delta
+            );
+            // top line for top block -
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[2].X * scale * delta,
+                fgBasePoint.Y + _vertexes[2].Y * scale * delta,
+                fgBasePoint.X + _vertexes[3].X * scale * delta,
+                fgBasePoint.Y + _vertexes[3].Y * scale * delta
+            );
+            // right line for top block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[3].X * scale * delta,
+                fgBasePoint.Y + _vertexes[3].Y * scale * delta,
+                fgBasePoint.X + (_vertexes[4].X + (_vertexes[1].X + _vertexes[4].X) / 2) * scale * delta / 2,
+                fgBasePoint.Y + (_vertexes[4].Y + (_vertexes[1].Y + _vertexes[4].Y) / 2) * scale * delta / 2
+            );
+            // right line for bottom block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + (_vertexes[5].X + (_vertexes[0].X + _vertexes[5].X) / 2) * scale * delta / 2,
+                fgBasePoint.Y + (_vertexes[5].Y + (_vertexes[0].Y + _vertexes[5].Y) / 2) * scale * delta / 2,
+                fgBasePoint.X + _vertexes[6].X * scale * delta,
+                fgBasePoint.Y + _vertexes[6].Y * scale * delta
+            );
+            // bottom line for bottom block _
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[6].X * scale * delta,
+                fgBasePoint.Y + _vertexes[6].Y * scale * delta,
+                fgBasePoint.X + _vertexes[7].X * scale * delta,
+                fgBasePoint.Y + _vertexes[7].Y * scale * delta
+            );
+            // left line for bottom block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + _vertexes[7].X * scale * delta,
+                fgBasePoint.Y + _vertexes[7].Y * scale * delta,
+                fgBasePoint.X + (_vertexes[0].X + (_vertexes[0].X + _vertexes[5].X) / 2) * scale * delta / 2,
+                fgBasePoint.Y + (_vertexes[0].Y + (_vertexes[0].Y + _vertexes[5].Y) / 2) * scale * delta / 2
+            );
+
+
+            /*  figure with static vertexes
+            // top line for 2 blocks --
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X - scaledDelta * 6,
+                fgBasePoint.Y - scaledDelta,
+                fgBasePoint.X + scaledDelta * 6,
+                fgBasePoint.Y - scaledDelta
+            );
+            // right line for 2 blocks |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + scaledDelta * 6,
+                fgBasePoint.Y - scaledDelta,
+                fgBasePoint.X + scaledDelta * 6,
+                fgBasePoint.Y + scaledDelta
+            );
+            // bottom line for 2 blocks __
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + scaledDelta * 6,
+                fgBasePoint.Y + scaledDelta,
+                fgBasePoint.X - scaledDelta * 6,
+                fgBasePoint.Y + scaledDelta
+            );
+            // left line for 2 blocks |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X - scaledDelta * 6,
+                fgBasePoint.Y + scaledDelta,
+                fgBasePoint.X - scaledDelta * 6,
+                fgBasePoint.Y - scaledDelta
+            );
+            // middle line for 2 blocks |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X,
+                fgBasePoint.Y + scaledDelta,
+                fgBasePoint.X,
+                fgBasePoint.Y - scaledDelta
+            );
+            // left line for top block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X - scaledDelta * 3,
+                fgBasePoint.Y - scaledDelta,
+                fgBasePoint.X - scaledDelta * 3,
+                fgBasePoint.Y - scaledDelta * 3
+            );
+            // top line for top block -
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X - scaledDelta * 3,
+                fgBasePoint.Y - scaledDelta * 3,
+                fgBasePoint.X + scaledDelta * 3,
+                fgBasePoint.Y - scaledDelta * 3
+            );
+            // right line for top block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + scaledDelta * 3,
+                fgBasePoint.Y - scaledDelta * 3,
+                fgBasePoint.X + scaledDelta * 3,
+                fgBasePoint.Y - scaledDelta
+            );
+            // right line for bottom block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + scaledDelta * 3,
+                fgBasePoint.Y + scaledDelta,
+                fgBasePoint.X + scaledDelta * 3,
+                fgBasePoint.Y + scaledDelta * 3
+            );
+            // bottom line for bottom block _
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X + scaledDelta * 3,
+                fgBasePoint.Y + scaledDelta * 3,
+                fgBasePoint.X - scaledDelta * 3,
+                fgBasePoint.Y + scaledDelta * 3
+            );
+            // left line for bottom block |
+            g.DrawLine(
+                myPen,
+                fgBasePoint.X - scaledDelta * 3,
+                fgBasePoint.Y + scaledDelta * 3,
+                fgBasePoint.X - scaledDelta * 3,
+                fgBasePoint.Y + scaledDelta
+            ); 
+            */
         }
 
         public void RunPoint()
