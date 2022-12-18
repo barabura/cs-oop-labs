@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Configuration;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace oop_labs
@@ -7,7 +8,7 @@ namespace oop_labs
     {
         private Figure hypocycloid;
         private float scaleMultiplier = 0.02f;
-        private string[] defaultFigureVertexes = {"-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60"};
+        private string[] defaultFigureVertexes = ConfigurationManager.AppSettings.Get("defaultFigureVertexes").Split(';'); // = {"-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60"};
 
         public frmMain()
         {
@@ -102,6 +103,17 @@ namespace oop_labs
         private void btnDefaultFigure_Click(object sender, System.EventArgs e)
         {
             tboxVertexes.Lines = defaultFigureVertexes;
+            hypocycloid.Vertexes = tboxVertexes.Lines;
+        }
+
+        private void btnCopyToClipboard_Click(object sender, System.EventArgs e)
+        {
+            Clipboard.SetText(tboxVertexes.Text);
+        }
+
+        private void btnPasteFromClipboard_Click(object sender, System.EventArgs e)
+        {
+            tboxVertexes.Text = Clipboard.GetText();
             hypocycloid.Vertexes = tboxVertexes.Lines;
         }
     }

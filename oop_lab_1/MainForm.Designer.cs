@@ -58,6 +58,8 @@
             this.lbl5 = new System.Windows.Forms.Label();
             this.lbl6 = new System.Windows.Forms.Label();
             this.lbl7 = new System.Windows.Forms.Label();
+            this.btnCopyToClipboard = new System.Windows.Forms.Button();
+            this.btnPasteFromClipboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxWorkSpace)).BeginInit();
             this.pnlFControlSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarPointPulse)).BeginInit();
@@ -85,6 +87,8 @@
             this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFControlSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlFControlSpace.Controls.Add(this.btnPasteFromClipboard);
+            this.pnlFControlSpace.Controls.Add(this.btnCopyToClipboard);
             this.pnlFControlSpace.Controls.Add(this.lbl7);
             this.pnlFControlSpace.Controls.Add(this.lbl6);
             this.pnlFControlSpace.Controls.Add(this.lbl5);
@@ -131,7 +135,7 @@
             this.btnRedrawFigure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRedrawFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRedrawFigure.Location = new System.Drawing.Point(3, 537);
+            this.btnRedrawFigure.Location = new System.Drawing.Point(5, 516);
             this.btnRedrawFigure.Name = "btnRedrawFigure";
             this.btnRedrawFigure.Size = new System.Drawing.Size(175, 36);
             this.btnRedrawFigure.TabIndex = 15;
@@ -144,7 +148,7 @@
             this.btnTrajectoryColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTrajectoryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnTrajectoryColor.Location = new System.Drawing.Point(3, 495);
+            this.btnTrajectoryColor.Location = new System.Drawing.Point(4, 474);
             this.btnTrajectoryColor.Name = "btnTrajectoryColor";
             this.btnTrajectoryColor.Size = new System.Drawing.Size(176, 36);
             this.btnTrajectoryColor.TabIndex = 14;
@@ -157,7 +161,7 @@
             this.btnBackgroundColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBackgroundColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBackgroundColor.Location = new System.Drawing.Point(3, 454);
+            this.btnBackgroundColor.Location = new System.Drawing.Point(3, 436);
             this.btnBackgroundColor.Name = "btnBackgroundColor";
             this.btnBackgroundColor.Size = new System.Drawing.Size(176, 35);
             this.btnBackgroundColor.TabIndex = 13;
@@ -182,7 +186,7 @@
             this.btnFigureColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFigureColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnFigureColor.Location = new System.Drawing.Point(3, 413);
+            this.btnFigureColor.Location = new System.Drawing.Point(4, 395);
             this.btnFigureColor.Name = "btnFigureColor";
             this.btnFigureColor.Size = new System.Drawing.Size(176, 35);
             this.btnFigureColor.TabIndex = 11;
@@ -319,7 +323,7 @@
             this.btnDefaultFigure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDefaultFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDefaultFigure.Location = new System.Drawing.Point(4, 579);
+            this.btnDefaultFigure.Location = new System.Drawing.Point(5, 558);
             this.btnDefaultFigure.Name = "btnDefaultFigure";
             this.btnDefaultFigure.Size = new System.Drawing.Size(175, 31);
             this.btnDefaultFigure.TabIndex = 17;
@@ -423,6 +427,30 @@
             this.lbl7.TabIndex = 25;
             this.lbl7.Text = "7";
             // 
+            // btnCopyToClipboard
+            // 
+            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyToClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(5, 595);
+            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
+            this.btnCopyToClipboard.Size = new System.Drawing.Size(128, 68);
+            this.btnCopyToClipboard.TabIndex = 26;
+            this.btnCopyToClipboard.Text = "Copy to clipboard";
+            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
+            // 
+            // btnPasteFromClipboard
+            // 
+            this.btnPasteFromClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPasteFromClipboard.Location = new System.Drawing.Point(139, 595);
+            this.btnPasteFromClipboard.Name = "btnPasteFromClipboard";
+            this.btnPasteFromClipboard.Size = new System.Drawing.Size(130, 68);
+            this.btnPasteFromClipboard.TabIndex = 27;
+            this.btnPasteFromClipboard.Text = "Paste from clipboard";
+            this.btnPasteFromClipboard.UseVisualStyleBackColor = true;
+            this.btnPasteFromClipboard.Click += new System.EventHandler(this.btnPasteFromClipboard_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -476,6 +504,8 @@
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lbl0;
+        private System.Windows.Forms.Button btnPasteFromClipboard;
+        private System.Windows.Forms.Button btnCopyToClipboard;
     }
 }
 
