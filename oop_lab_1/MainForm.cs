@@ -7,19 +7,19 @@ namespace oop_labs
     {
         private Figure hypocycloid;
         private float scaleMultiplier = 0.02f;
-        //private string[] figureVertexes = {"-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60"};
+        private string[] defaultFigureVertexes = {"-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60"};
 
         public frmMain()
         {
             InitializeComponent();
-            hypocycloid = new Figure();
+            hypocycloid = new Figure(); // load?
         }
 
         private void frmMain_Load(object sender, System.EventArgs e)
         {
-            string[] initialFigureVertexes = { "-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60" };
-            tbVertexes.Lines = initialFigureVertexes;
-            hypocycloid.Vertexes = tbVertexes.Lines;
+            //string[] defaultFigureVertexes = { "-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60" };
+            tboxVertexes.Lines = defaultFigureVertexes;
+            hypocycloid.Vertexes = tboxVertexes.Lines;
         }
 
         private void pboxWorkSpace_Paint(object sender, PaintEventArgs e)
@@ -96,7 +96,13 @@ namespace oop_labs
 
         private void btnRedrawFigure_Click(object sender, System.EventArgs e)
         {
-            hypocycloid.Vertexes = tbVertexes.Lines;
+            hypocycloid.Vertexes = tboxVertexes.Lines;
+        }
+
+        private void btnDefaultFigure_Click(object sender, System.EventArgs e)
+        {
+            tboxVertexes.Lines = defaultFigureVertexes;
+            hypocycloid.Vertexes = tboxVertexes.Lines;
         }
     }
 }

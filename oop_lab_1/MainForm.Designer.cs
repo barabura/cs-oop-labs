@@ -30,7 +30,7 @@
         {
             this.pboxWorkSpace = new System.Windows.Forms.PictureBox();
             this.pnlFControlSpace = new System.Windows.Forms.Panel();
-            this.tbVertexes = new System.Windows.Forms.TextBox();
+            this.tboxVertexes = new System.Windows.Forms.TextBox();
             this.btnRedrawFigure = new System.Windows.Forms.Button();
             this.btnTrajectoryColor = new System.Windows.Forms.Button();
             this.btnBackgroundColor = new System.Windows.Forms.Button();
@@ -49,6 +49,15 @@
             this.cdFigureColor = new System.Windows.Forms.ColorDialog();
             this.cdBackgroundColor = new System.Windows.Forms.ColorDialog();
             this.cdTrajectoryColor = new System.Windows.Forms.ColorDialog();
+            this.btnDefaultFigure = new System.Windows.Forms.Button();
+            this.lbl0 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl6 = new System.Windows.Forms.Label();
+            this.lbl7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxWorkSpace)).BeginInit();
             this.pnlFControlSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarPointPulse)).BeginInit();
@@ -65,7 +74,7 @@
             this.pboxWorkSpace.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pboxWorkSpace.Location = new System.Drawing.Point(12, 12);
             this.pboxWorkSpace.Name = "pboxWorkSpace";
-            this.pboxWorkSpace.Size = new System.Drawing.Size(572, 624);
+            this.pboxWorkSpace.Size = new System.Drawing.Size(564, 666);
             this.pboxWorkSpace.TabIndex = 0;
             this.pboxWorkSpace.TabStop = false;
             this.pboxWorkSpace.SizeChanged += new System.EventHandler(this.pboxWorkSpace_SizeChanged);
@@ -76,7 +85,16 @@
             this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFControlSpace.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlFControlSpace.Controls.Add(this.tbVertexes);
+            this.pnlFControlSpace.Controls.Add(this.lbl7);
+            this.pnlFControlSpace.Controls.Add(this.lbl6);
+            this.pnlFControlSpace.Controls.Add(this.lbl5);
+            this.pnlFControlSpace.Controls.Add(this.lbl4);
+            this.pnlFControlSpace.Controls.Add(this.lbl3);
+            this.pnlFControlSpace.Controls.Add(this.lbl2);
+            this.pnlFControlSpace.Controls.Add(this.lbl1);
+            this.pnlFControlSpace.Controls.Add(this.lbl0);
+            this.pnlFControlSpace.Controls.Add(this.btnDefaultFigure);
+            this.pnlFControlSpace.Controls.Add(this.tboxVertexes);
             this.pnlFControlSpace.Controls.Add(this.btnRedrawFigure);
             this.pnlFControlSpace.Controls.Add(this.btnTrajectoryColor);
             this.pnlFControlSpace.Controls.Add(this.btnBackgroundColor);
@@ -92,20 +110,21 @@
             this.pnlFControlSpace.Controls.Add(this.tbarFFrequency);
             this.pnlFControlSpace.Controls.Add(this.lblFTrajectorySize);
             this.pnlFControlSpace.Controls.Add(this.tbarFTrajectorySize);
-            this.pnlFControlSpace.Location = new System.Drawing.Point(590, 12);
+            this.pnlFControlSpace.Location = new System.Drawing.Point(582, 12);
             this.pnlFControlSpace.Name = "pnlFControlSpace";
-            this.pnlFControlSpace.Size = new System.Drawing.Size(371, 624);
+            this.pnlFControlSpace.Size = new System.Drawing.Size(371, 666);
             this.pnlFControlSpace.TabIndex = 1;
             // 
-            // tbVertexes
+            // tboxVertexes
             // 
-            this.tbVertexes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tboxVertexes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbVertexes.Location = new System.Drawing.Point(230, 413);
-            this.tbVertexes.Multiline = true;
-            this.tbVertexes.Name = "tbVertexes";
-            this.tbVertexes.Size = new System.Drawing.Size(127, 160);
-            this.tbVertexes.TabIndex = 16;
+            this.tboxVertexes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tboxVertexes.Location = new System.Drawing.Point(231, 413);
+            this.tboxVertexes.Multiline = true;
+            this.tboxVertexes.Name = "tboxVertexes";
+            this.tboxVertexes.Size = new System.Drawing.Size(127, 160);
+            this.tboxVertexes.TabIndex = 16;
             // 
             // btnRedrawFigure
             // 
@@ -116,7 +135,7 @@
             this.btnRedrawFigure.Name = "btnRedrawFigure";
             this.btnRedrawFigure.Size = new System.Drawing.Size(175, 36);
             this.btnRedrawFigure.TabIndex = 15;
-            this.btnRedrawFigure.Text = "Redraw Figure";
+            this.btnRedrawFigure.Text = "Redraw figure";
             this.btnRedrawFigure.UseVisualStyleBackColor = true;
             this.btnRedrawFigure.Click += new System.EventHandler(this.btnRedrawFigure_Click);
             // 
@@ -295,11 +314,120 @@
             this.tbarFTrajectorySize.Value = 25;
             this.tbarFTrajectorySize.ValueChanged += new System.EventHandler(this.tbarFTrajectorySize_ValueChanged);
             // 
+            // btnDefaultFigure
+            // 
+            this.btnDefaultFigure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDefaultFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDefaultFigure.Location = new System.Drawing.Point(4, 579);
+            this.btnDefaultFigure.Name = "btnDefaultFigure";
+            this.btnDefaultFigure.Size = new System.Drawing.Size(175, 31);
+            this.btnDefaultFigure.TabIndex = 17;
+            this.btnDefaultFigure.Text = "Default figure";
+            this.btnDefaultFigure.UseVisualStyleBackColor = true;
+            this.btnDefaultFigure.Click += new System.EventHandler(this.btnDefaultFigure_Click);
+            // 
+            // lbl0
+            // 
+            this.lbl0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl0.AutoSize = true;
+            this.lbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl0.Location = new System.Drawing.Point(211, 417);
+            this.lbl0.Name = "lbl0";
+            this.lbl0.Size = new System.Drawing.Size(16, 18);
+            this.lbl0.TabIndex = 18;
+            this.lbl0.Text = "0";
+            // 
+            // lbl1
+            // 
+            this.lbl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl1.Location = new System.Drawing.Point(211, 435);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(16, 18);
+            this.lbl1.TabIndex = 19;
+            this.lbl1.Text = "1";
+            // 
+            // lbl2
+            // 
+            this.lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl2.Location = new System.Drawing.Point(211, 453);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(16, 18);
+            this.lbl2.TabIndex = 20;
+            this.lbl2.Text = "2";
+            // 
+            // lbl3
+            // 
+            this.lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl3.AutoSize = true;
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl3.Location = new System.Drawing.Point(211, 471);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(16, 18);
+            this.lbl3.TabIndex = 21;
+            this.lbl3.Text = "3";
+            // 
+            // lbl4
+            // 
+            this.lbl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl4.AutoSize = true;
+            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl4.Location = new System.Drawing.Point(211, 492);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(16, 18);
+            this.lbl4.TabIndex = 22;
+            this.lbl4.Text = "4";
+            // 
+            // lbl5
+            // 
+            this.lbl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl5.AutoSize = true;
+            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl5.Location = new System.Drawing.Point(211, 510);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(16, 18);
+            this.lbl5.TabIndex = 23;
+            this.lbl5.Text = "5";
+            // 
+            // lbl6
+            // 
+            this.lbl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl6.AutoSize = true;
+            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl6.Location = new System.Drawing.Point(211, 528);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(16, 18);
+            this.lbl6.TabIndex = 24;
+            this.lbl6.Text = "6";
+            // 
+            // lbl7
+            // 
+            this.lbl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl7.AutoSize = true;
+            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl7.Location = new System.Drawing.Point(211, 546);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(16, 18);
+            this.lbl7.TabIndex = 25;
+            this.lbl7.Text = "7";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 648);
+            this.ClientSize = new System.Drawing.Size(965, 690);
             this.Controls.Add(this.pnlFControlSpace);
             this.Controls.Add(this.pboxWorkSpace);
             this.Name = "frmMain";
@@ -338,7 +466,16 @@
         private System.Windows.Forms.Button btnTrajectoryColor;
         private System.Windows.Forms.ColorDialog cdTrajectoryColor;
         private System.Windows.Forms.Button btnRedrawFigure;
-        private System.Windows.Forms.TextBox tbVertexes;
+        private System.Windows.Forms.TextBox tboxVertexes;
+        private System.Windows.Forms.Button btnDefaultFigure;
+        private System.Windows.Forms.Label lbl7;
+        private System.Windows.Forms.Label lbl6;
+        private System.Windows.Forms.Label lbl5;
+        private System.Windows.Forms.Label lbl4;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label lbl0;
     }
 }
 

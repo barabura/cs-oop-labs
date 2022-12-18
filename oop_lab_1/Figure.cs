@@ -72,7 +72,10 @@ namespace oop_labs
 
             if (fgBasePoint.X == 0 && fgBasePoint.Y == 0)
                 return;
-
+            
+            /* 
+             * Figure drawing
+             */
             // top line for 2 blocks --
             g.DrawLine(
                 myPen,
@@ -163,97 +166,68 @@ namespace oop_labs
                 fgBasePoint.Y + (_vertexes[0].Y + (_vertexes[0].Y + _vertexes[5].Y) / 2) * scale * delta / 2
             );
 
+            Font vertexesFont = new Font("Microsoft Sans Serif", 20 * delta * scale);
+            Brush fontBrush = new SolidBrush(Color.Black); //??????????
 
-            /*  figure with static vertexes
-            // top line for 2 blocks --
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X - scaledDelta * 6,
-                fgBasePoint.Y - scaledDelta,
-                fgBasePoint.X + scaledDelta * 6,
-                fgBasePoint.Y - scaledDelta
+            /* 
+             * Vertexes setting 
+             */
+            g.DrawString(
+                "0",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + (_vertexes[0].X - 20) * scale * delta,
+                fgBasePoint.Y + _vertexes[0].Y * scale * delta
             );
-            // right line for 2 blocks |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X + scaledDelta * 6,
-                fgBasePoint.Y - scaledDelta,
-                fgBasePoint.X + scaledDelta * 6,
-                fgBasePoint.Y + scaledDelta
+            g.DrawString(
+                "1",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + (_vertexes[1].X - 20) * scale * delta,
+                fgBasePoint.Y + (_vertexes[1].Y - 35) * scale * delta
             );
-            // bottom line for 2 blocks __
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X + scaledDelta * 6,
-                fgBasePoint.Y + scaledDelta,
-                fgBasePoint.X - scaledDelta * 6,
-                fgBasePoint.Y + scaledDelta
+            g.DrawString(
+                "2",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + (_vertexes[2].X - 20) * scale * delta,
+                fgBasePoint.Y + (_vertexes[2].Y - 35) * scale * delta
             );
-            // left line for 2 blocks |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X - scaledDelta * 6,
-                fgBasePoint.Y + scaledDelta,
-                fgBasePoint.X - scaledDelta * 6,
-                fgBasePoint.Y - scaledDelta
+            g.DrawString(
+                "3",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + _vertexes[3].X * scale * delta,
+                fgBasePoint.Y + (_vertexes[3].Y - 35) * scale * delta
             );
-            // middle line for 2 blocks |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X,
-                fgBasePoint.Y + scaledDelta,
-                fgBasePoint.X,
-                fgBasePoint.Y - scaledDelta
+            g.DrawString(
+                "4",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + _vertexes[4].X * scale * delta,
+                fgBasePoint.Y + (_vertexes[4].Y - 35) * scale * delta
             );
-            // left line for top block |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X - scaledDelta * 3,
-                fgBasePoint.Y - scaledDelta,
-                fgBasePoint.X - scaledDelta * 3,
-                fgBasePoint.Y - scaledDelta * 3
+            g.DrawString(
+                "5",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + _vertexes[5].X * scale * delta,
+                fgBasePoint.Y + _vertexes[5].Y * scale * delta
             );
-            // top line for top block -
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X - scaledDelta * 3,
-                fgBasePoint.Y - scaledDelta * 3,
-                fgBasePoint.X + scaledDelta * 3,
-                fgBasePoint.Y - scaledDelta * 3
+            g.DrawString(
+                "6",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + _vertexes[6].X * scale * delta,
+                fgBasePoint.Y + _vertexes[6].Y * scale * delta
             );
-            // right line for top block |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X + scaledDelta * 3,
-                fgBasePoint.Y - scaledDelta * 3,
-                fgBasePoint.X + scaledDelta * 3,
-                fgBasePoint.Y - scaledDelta
+            g.DrawString(
+                "7",
+                vertexesFont,
+                fontBrush,
+                fgBasePoint.X + (_vertexes[7].X - 20) * scale * delta,
+                fgBasePoint.Y + _vertexes[7].Y * scale * delta
             );
-            // right line for bottom block |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X + scaledDelta * 3,
-                fgBasePoint.Y + scaledDelta,
-                fgBasePoint.X + scaledDelta * 3,
-                fgBasePoint.Y + scaledDelta * 3
-            );
-            // bottom line for bottom block _
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X + scaledDelta * 3,
-                fgBasePoint.Y + scaledDelta * 3,
-                fgBasePoint.X - scaledDelta * 3,
-                fgBasePoint.Y + scaledDelta * 3
-            );
-            // left line for bottom block |
-            g.DrawLine(
-                myPen,
-                fgBasePoint.X - scaledDelta * 3,
-                fgBasePoint.Y + scaledDelta * 3,
-                fgBasePoint.X - scaledDelta * 3,
-                fgBasePoint.Y + scaledDelta
-            ); 
-            */
         }
 
         public void RunPoint()
