@@ -9,6 +9,7 @@ namespace oop_labs
         private Figure hypocycloid;
         private float scaleMultiplier = 0.02f;
         private string[] defaultFigureVertexes = ConfigurationManager.AppSettings.Get("defaultFigureVertexes").Split(';'); // = {"-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60"};
+        private string[] customFigureVertexes = ConfigurationManager.AppSettings.Get("customFigureVertexes").Split(';');
 
         public frmMain()
         {
@@ -19,7 +20,7 @@ namespace oop_labs
         private void frmMain_Load(object sender, System.EventArgs e)
         {
             //string[] defaultFigureVertexes = { "-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60" };
-            tboxVertexes.Lines = defaultFigureVertexes;
+            tboxVertexes.Lines = customFigureVertexes; // defaultFigureVertexes;
             hypocycloid.Vertexes = tboxVertexes.Lines;
         }
 
@@ -115,6 +116,15 @@ namespace oop_labs
         {
             tboxVertexes.Text = Clipboard.GetText();
             hypocycloid.Vertexes = tboxVertexes.Lines;
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configuration currentConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            currentConfig.AppSettings.Settings["customFigureVertexes"].Value = string.Join(";", tboxVertexes.Lines);
+            currentConfig.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }
