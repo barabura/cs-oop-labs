@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace oop_labs
@@ -15,6 +16,11 @@ namespace oop_labs
         {
             InitializeComponent();
             hypocycloid = new Figure(); // load?
+        }
+
+        private bool isMatchRegex(string input)
+        {
+            return Regex.Match(input, "^[\\d,\\. +-]+$").Success;
         }
 
         private void frmMain_Load(object sender, System.EventArgs e)
@@ -129,8 +135,20 @@ namespace oop_labs
 
         private void tboxVertexes_TextChanged(object sender, System.EventArgs e)
         {
+            if (!isMatchRegex(tboxVertexes.Text.Replace("\r\n", "")))
+            {
+                MessageBox.Show("Invalid input! You can only use digits, '+', '-' and ', ' as a delimiter.", "Error");
+                return ;
+            }
+
             tboxVertexes.Pasted += (_, args) =>
             {
+                if (!isMatchRegex(args.ClipboardText.Replace("\r\n", "")))
+                {
+                    MessageBox.Show("Invalid input! You can only use digits, '+', '-' and ', ' as a delimiter.", "Error");
+                    return;
+                }
+
                 string[] stringSeparator = new string[] { "\r\n" };
                 tboxVertexes.Lines = args.ClipboardText.Split(stringSeparator, System.StringSplitOptions.None);
                 hypocycloid.Vertexes = tboxVertexes.Lines;
