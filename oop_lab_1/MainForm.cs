@@ -126,5 +126,15 @@ namespace oop_labs
             currentConfig.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+        private void tboxVertexes_TextChanged(object sender, System.EventArgs e)
+        {
+            tboxVertexes.Pasted += (_, args) =>
+            {
+                string[] stringSeparator = new string[] { "\r\n" };
+                tboxVertexes.Lines = args.ClipboardText.Split(stringSeparator, System.StringSplitOptions.None);
+                hypocycloid.Vertexes = tboxVertexes.Lines;
+            };
+        }
     }
 }

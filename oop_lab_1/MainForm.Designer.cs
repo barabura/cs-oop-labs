@@ -30,7 +30,17 @@
         {
             this.pboxWorkSpace = new System.Windows.Forms.PictureBox();
             this.pnlFControlSpace = new System.Windows.Forms.Panel();
-            this.tboxVertexes = new System.Windows.Forms.TextBox();
+            this.btnPasteFromClipboard = new System.Windows.Forms.Button();
+            this.btnCopyToClipboard = new System.Windows.Forms.Button();
+            this.lbl7 = new System.Windows.Forms.Label();
+            this.lbl6 = new System.Windows.Forms.Label();
+            this.lbl5 = new System.Windows.Forms.Label();
+            this.lbl4 = new System.Windows.Forms.Label();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lbl0 = new System.Windows.Forms.Label();
+            this.btnDefaultFigure = new System.Windows.Forms.Button();
             this.btnRedrawFigure = new System.Windows.Forms.Button();
             this.btnTrajectoryColor = new System.Windows.Forms.Button();
             this.btnBackgroundColor = new System.Windows.Forms.Button();
@@ -49,17 +59,7 @@
             this.cdFigureColor = new System.Windows.Forms.ColorDialog();
             this.cdBackgroundColor = new System.Windows.Forms.ColorDialog();
             this.cdTrajectoryColor = new System.Windows.Forms.ColorDialog();
-            this.btnDefaultFigure = new System.Windows.Forms.Button();
-            this.lbl0 = new System.Windows.Forms.Label();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.lbl4 = new System.Windows.Forms.Label();
-            this.lbl5 = new System.Windows.Forms.Label();
-            this.lbl6 = new System.Windows.Forms.Label();
-            this.lbl7 = new System.Windows.Forms.Label();
-            this.btnCopyToClipboard = new System.Windows.Forms.Button();
-            this.btnPasteFromClipboard = new System.Windows.Forms.Button();
+            this.tboxVertexes = new CustomTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pboxWorkSpace)).BeginInit();
             this.pnlFControlSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarPointPulse)).BeginInit();
@@ -87,6 +87,7 @@
             this.pnlFControlSpace.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFControlSpace.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlFControlSpace.Controls.Add(this.tboxVertexes);
             this.pnlFControlSpace.Controls.Add(this.btnPasteFromClipboard);
             this.pnlFControlSpace.Controls.Add(this.btnCopyToClipboard);
             this.pnlFControlSpace.Controls.Add(this.lbl7);
@@ -98,7 +99,6 @@
             this.pnlFControlSpace.Controls.Add(this.lbl1);
             this.pnlFControlSpace.Controls.Add(this.lbl0);
             this.pnlFControlSpace.Controls.Add(this.btnDefaultFigure);
-            this.pnlFControlSpace.Controls.Add(this.tboxVertexes);
             this.pnlFControlSpace.Controls.Add(this.btnRedrawFigure);
             this.pnlFControlSpace.Controls.Add(this.btnTrajectoryColor);
             this.pnlFControlSpace.Controls.Add(this.btnBackgroundColor);
@@ -119,16 +119,138 @@
             this.pnlFControlSpace.Size = new System.Drawing.Size(371, 666);
             this.pnlFControlSpace.TabIndex = 1;
             // 
-            // tboxVertexes
+            // btnPasteFromClipboard
             // 
-            this.tboxVertexes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnPasteFromClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPasteFromClipboard.Location = new System.Drawing.Point(139, 595);
+            this.btnPasteFromClipboard.Name = "btnPasteFromClipboard";
+            this.btnPasteFromClipboard.Size = new System.Drawing.Size(130, 68);
+            this.btnPasteFromClipboard.TabIndex = 27;
+            this.btnPasteFromClipboard.Text = "Paste from clipboard";
+            this.btnPasteFromClipboard.UseVisualStyleBackColor = true;
+            this.btnPasteFromClipboard.Click += new System.EventHandler(this.btnPasteFromClipboard_Click);
+            // 
+            // btnCopyToClipboard
+            // 
+            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tboxVertexes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tboxVertexes.Location = new System.Drawing.Point(231, 413);
-            this.tboxVertexes.Multiline = true;
-            this.tboxVertexes.Name = "tboxVertexes";
-            this.tboxVertexes.Size = new System.Drawing.Size(127, 160);
-            this.tboxVertexes.TabIndex = 16;
+            this.btnCopyToClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(5, 595);
+            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
+            this.btnCopyToClipboard.Size = new System.Drawing.Size(128, 68);
+            this.btnCopyToClipboard.TabIndex = 26;
+            this.btnCopyToClipboard.Text = "Copy to clipboard";
+            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
+            // 
+            // lbl7
+            // 
+            this.lbl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl7.AutoSize = true;
+            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl7.Location = new System.Drawing.Point(211, 546);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(16, 18);
+            this.lbl7.TabIndex = 25;
+            this.lbl7.Text = "7";
+            // 
+            // lbl6
+            // 
+            this.lbl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl6.AutoSize = true;
+            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl6.Location = new System.Drawing.Point(211, 528);
+            this.lbl6.Name = "lbl6";
+            this.lbl6.Size = new System.Drawing.Size(16, 18);
+            this.lbl6.TabIndex = 24;
+            this.lbl6.Text = "6";
+            // 
+            // lbl5
+            // 
+            this.lbl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl5.AutoSize = true;
+            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl5.Location = new System.Drawing.Point(211, 510);
+            this.lbl5.Name = "lbl5";
+            this.lbl5.Size = new System.Drawing.Size(16, 18);
+            this.lbl5.TabIndex = 23;
+            this.lbl5.Text = "5";
+            // 
+            // lbl4
+            // 
+            this.lbl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl4.AutoSize = true;
+            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl4.Location = new System.Drawing.Point(211, 492);
+            this.lbl4.Name = "lbl4";
+            this.lbl4.Size = new System.Drawing.Size(16, 18);
+            this.lbl4.TabIndex = 22;
+            this.lbl4.Text = "4";
+            // 
+            // lbl3
+            // 
+            this.lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl3.AutoSize = true;
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl3.Location = new System.Drawing.Point(211, 471);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(16, 18);
+            this.lbl3.TabIndex = 21;
+            this.lbl3.Text = "3";
+            // 
+            // lbl2
+            // 
+            this.lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl2.Location = new System.Drawing.Point(211, 453);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(16, 18);
+            this.lbl2.TabIndex = 20;
+            this.lbl2.Text = "2";
+            // 
+            // lbl1
+            // 
+            this.lbl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl1.Location = new System.Drawing.Point(211, 435);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(16, 18);
+            this.lbl1.TabIndex = 19;
+            this.lbl1.Text = "1";
+            // 
+            // lbl0
+            // 
+            this.lbl0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl0.AutoSize = true;
+            this.lbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl0.Location = new System.Drawing.Point(211, 417);
+            this.lbl0.Name = "lbl0";
+            this.lbl0.Size = new System.Drawing.Size(16, 18);
+            this.lbl0.TabIndex = 18;
+            this.lbl0.Text = "0";
+            // 
+            // btnDefaultFigure
+            // 
+            this.btnDefaultFigure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDefaultFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDefaultFigure.Location = new System.Drawing.Point(5, 558);
+            this.btnDefaultFigure.Name = "btnDefaultFigure";
+            this.btnDefaultFigure.Size = new System.Drawing.Size(175, 31);
+            this.btnDefaultFigure.TabIndex = 17;
+            this.btnDefaultFigure.Text = "Default figure";
+            this.btnDefaultFigure.UseVisualStyleBackColor = true;
+            this.btnDefaultFigure.Click += new System.EventHandler(this.btnDefaultFigure_Click);
             // 
             // btnRedrawFigure
             // 
@@ -318,138 +440,15 @@
             this.tbarFTrajectorySize.Value = 25;
             this.tbarFTrajectorySize.ValueChanged += new System.EventHandler(this.tbarFTrajectorySize_ValueChanged);
             // 
-            // btnDefaultFigure
+            // tboxVertexes
             // 
-            this.btnDefaultFigure.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDefaultFigure.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDefaultFigure.Location = new System.Drawing.Point(5, 558);
-            this.btnDefaultFigure.Name = "btnDefaultFigure";
-            this.btnDefaultFigure.Size = new System.Drawing.Size(175, 31);
-            this.btnDefaultFigure.TabIndex = 17;
-            this.btnDefaultFigure.Text = "Default figure";
-            this.btnDefaultFigure.UseVisualStyleBackColor = true;
-            this.btnDefaultFigure.Click += new System.EventHandler(this.btnDefaultFigure_Click);
-            // 
-            // lbl0
-            // 
-            this.lbl0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl0.AutoSize = true;
-            this.lbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl0.Location = new System.Drawing.Point(211, 417);
-            this.lbl0.Name = "lbl0";
-            this.lbl0.Size = new System.Drawing.Size(16, 18);
-            this.lbl0.TabIndex = 18;
-            this.lbl0.Text = "0";
-            // 
-            // lbl1
-            // 
-            this.lbl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl1.AutoSize = true;
-            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl1.Location = new System.Drawing.Point(211, 435);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(16, 18);
-            this.lbl1.TabIndex = 19;
-            this.lbl1.Text = "1";
-            // 
-            // lbl2
-            // 
-            this.lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl2.AutoSize = true;
-            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl2.Location = new System.Drawing.Point(211, 453);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(16, 18);
-            this.lbl2.TabIndex = 20;
-            this.lbl2.Text = "2";
-            // 
-            // lbl3
-            // 
-            this.lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl3.AutoSize = true;
-            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl3.Location = new System.Drawing.Point(211, 471);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(16, 18);
-            this.lbl3.TabIndex = 21;
-            this.lbl3.Text = "3";
-            // 
-            // lbl4
-            // 
-            this.lbl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl4.AutoSize = true;
-            this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl4.Location = new System.Drawing.Point(211, 492);
-            this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(16, 18);
-            this.lbl4.TabIndex = 22;
-            this.lbl4.Text = "4";
-            // 
-            // lbl5
-            // 
-            this.lbl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl5.AutoSize = true;
-            this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl5.Location = new System.Drawing.Point(211, 510);
-            this.lbl5.Name = "lbl5";
-            this.lbl5.Size = new System.Drawing.Size(16, 18);
-            this.lbl5.TabIndex = 23;
-            this.lbl5.Text = "5";
-            // 
-            // lbl6
-            // 
-            this.lbl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl6.AutoSize = true;
-            this.lbl6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl6.Location = new System.Drawing.Point(211, 528);
-            this.lbl6.Name = "lbl6";
-            this.lbl6.Size = new System.Drawing.Size(16, 18);
-            this.lbl6.TabIndex = 24;
-            this.lbl6.Text = "6";
-            // 
-            // lbl7
-            // 
-            this.lbl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl7.AutoSize = true;
-            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl7.Location = new System.Drawing.Point(211, 546);
-            this.lbl7.Name = "lbl7";
-            this.lbl7.Size = new System.Drawing.Size(16, 18);
-            this.lbl7.TabIndex = 25;
-            this.lbl7.Text = "7";
-            // 
-            // btnCopyToClipboard
-            // 
-            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopyToClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCopyToClipboard.Location = new System.Drawing.Point(5, 595);
-            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
-            this.btnCopyToClipboard.Size = new System.Drawing.Size(128, 68);
-            this.btnCopyToClipboard.TabIndex = 26;
-            this.btnCopyToClipboard.Text = "Copy to clipboard";
-            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
-            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
-            // 
-            // btnPasteFromClipboard
-            // 
-            this.btnPasteFromClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPasteFromClipboard.Location = new System.Drawing.Point(139, 595);
-            this.btnPasteFromClipboard.Name = "btnPasteFromClipboard";
-            this.btnPasteFromClipboard.Size = new System.Drawing.Size(130, 68);
-            this.btnPasteFromClipboard.TabIndex = 27;
-            this.btnPasteFromClipboard.Text = "Paste from clipboard";
-            this.btnPasteFromClipboard.UseVisualStyleBackColor = true;
-            this.btnPasteFromClipboard.Click += new System.EventHandler(this.btnPasteFromClipboard_Click);
+            this.tboxVertexes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tboxVertexes.Location = new System.Drawing.Point(233, 414);
+            this.tboxVertexes.Multiline = true;
+            this.tboxVertexes.Name = "tboxVertexes";
+            this.tboxVertexes.Size = new System.Drawing.Size(124, 156);
+            this.tboxVertexes.TabIndex = 28;
+            this.tboxVertexes.TextChanged += new System.EventHandler(this.tboxVertexes_TextChanged);
             // 
             // frmMain
             // 
@@ -495,7 +494,6 @@
         private System.Windows.Forms.Button btnTrajectoryColor;
         private System.Windows.Forms.ColorDialog cdTrajectoryColor;
         private System.Windows.Forms.Button btnRedrawFigure;
-        private System.Windows.Forms.TextBox tboxVertexes;
         private System.Windows.Forms.Button btnDefaultFigure;
         private System.Windows.Forms.Label lbl7;
         private System.Windows.Forms.Label lbl6;
@@ -507,6 +505,7 @@
         private System.Windows.Forms.Label lbl0;
         private System.Windows.Forms.Button btnPasteFromClipboard;
         private System.Windows.Forms.Button btnCopyToClipboard;
+        private CustomTextBox tboxVertexes;
     }
 }
 

@@ -47,6 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClipboardEventArguments.cs" />
+    <Compile Include="CustomTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Figure.cs" />
     <Compile Include="MovingPoint.cs" />
     <Compile Include="Hypocycloid.cs" />
