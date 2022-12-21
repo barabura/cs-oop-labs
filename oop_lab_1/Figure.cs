@@ -24,16 +24,25 @@ namespace oop_labs
 
             for (int i = 0; i < handledVertexes.Length; i++)
             {
-                string[] splitted = input[i].Split(',');
+                try
+                {
+                    string[] splitted = input[i].Split(',');
 
-                handledVertexes[i] = new Point(Int32.Parse(splitted[0]), Int32.Parse(splitted[1]));
+                    handledVertexes[i] = new Point(Int32.Parse(splitted[0]), Int32.Parse(splitted[1]));
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid input! You can only use digits, '+', '-' and ', ' as a delimiter.", "Error");
+                    return null;
+                }
             }
             return handledVertexes;
         }
 
         public string[] Vertexes
         {
-            set { _vertexes = this.HandleVertexes(value); }
+            set
+            { _vertexes = this.HandleVertexes(value); }
         }
 
         public void DrawFigure(PictureBox pbox, Graphics g)

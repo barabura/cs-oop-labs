@@ -1,5 +1,6 @@
-﻿using System.Configuration;
-using System.Drawing;
+﻿using System;
+using System.Configuration;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -11,11 +12,15 @@ namespace oop_labs
         private float scaleMultiplier = 0.02f;
         private string[] defaultFigureVertexes = ConfigurationManager.AppSettings.Get("defaultFigureVertexes").Split(';'); // = {"-120, 20", "-120, -20", "-60, -60", "60, -60", "120, -20", "120, 20", "60, 60", "-60, 60"};
         private string[] customFigureVertexes = ConfigurationManager.AppSettings.Get("customFigureVertexes").Split(';');
+        private string buf = Clipboard.GetText();
+        
+        IntPtr nextClipboardViewer;
 
         public frmMain()
         {
             InitializeComponent();
-            hypocycloid = new Figure(); // load?
+            hypocycloid = new Figure();
+            nextClipboardViewer = (IntPtr)SetClipboardViewer((int)this.Handle);
         }
 
         private bool isMatchRegex(string input)
@@ -38,10 +43,6 @@ namespace oop_labs
             hypocycloid.frequency = tbarFFrequency.Value * 2;
             hypocycloid.speed = tbarPointSpeed.Value;
             hypocycloid.pulse = tbarPointPulse.Value;
-
-            //movingPoint.DrawPoint(pboxWorkSpace, e.Graphics);
-            //movingPoint.scale = tbarFTrajectorySize.Value * scaleMultiplier;
-            //pboxWorkSpace.Invalidate();
         }
 
         private void btStart_Click(object sender, System.EventArgs e)
@@ -138,7 +139,7 @@ namespace oop_labs
             if (!isMatchRegex(tboxVertexes.Text.Replace("\r\n", "")))
             {
                 MessageBox.Show("Invalid input! You can only use digits, '+', '-' and ', ' as a delimiter.", "Error");
-                return ;
+                return;
             }
 
             tboxVertexes.Pasted += (_, args) =>
@@ -153,6 +154,55 @@ namespace oop_labs
                 tboxVertexes.Lines = args.ClipboardText.Split(stringSeparator, System.StringSplitOptions.None);
                 hypocycloid.Vertexes = tboxVertexes.Lines;
             };
+        }
+
+        [DllImport("User32.dll")]
+        protected static extern int SetClipboardViewer(int hWndNewViewer);
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern bool ChangeClipboardChain(IntPtr hWndRemove, IntPtr hWndNewNext);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
+
+        protected override void WndProc(ref System.Windows.Forms.Message m)
+        {
+            const int WM_DRAWCLIPBOARD = 0x308;
+            const int WM_CHANGECBCHAIN = 0x030D;
+
+            switch (m.Msg)
+            {
+                case WM_DRAWCLIPBOARD:
+                    DisplayClipboardData();
+                    SendMessage(nextClipboardViewer, m.Msg, m.WParam, m.LParam);
+                    break;
+
+                case WM_CHANGECBCHAIN:
+                    if (m.WParam == nextClipboardViewer)
+                        nextClipboardViewer = m.LParam;
+                    else
+                        SendMessage(nextClipboardViewer, m.Msg, m.WParam, m.LParam);
+                    break;
+
+                default:
+                    base.WndProc(ref m);
+                    break;
+            }
+        }
+
+        void DisplayClipboardData()
+        {
+            try
+            {
+                if (Clipboard.GetText() != buf)
+                {
+                    MessageBox.Show("Clipboard data changed!", "Attention!");
+                }
+                buf = Clipboard.GetText();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
     }
 }
